@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import Form from './components/Form';
 import ResultCard from './components/ResultCard';
-import Dashboard from './components/Dashboard';
-import CSVUpload from './components/CSVUpload';
-import AdminPanel from './components/AdminPanel';
+const Dashboard = lazy(() => import('./components/Dashboard'));
+const CSVUpload = lazy(() => import('./components/CSVUpload'));
+const AdminPanel = lazy(() => import('./components/AdminPanel'));
 import { ShieldCheck, LayoutDashboard, Calculator, Upload, ClipboardList, Sparkles, BrainCircuit } from 'lucide-react';
 import { predict as apiPredict } from './services/api';
 
@@ -148,18 +148,28 @@ function App() {
                 ) : null}
 
                 {activeTab === 'dashboard' ? (
-                    <div>
-                        <div className="mb-8">
-                            <h2 className="mb-2 text-3xl font-bold text-white">System Analytics</h2>
-                            <p className="text-slate-300">Overview of system-wide fairness metrics and selection patterns.</p>
+                    <Suspense fallback={<div className="text-white text-center py-8">Loading...</div>}>
+                        <div>
+                            <div className="mb-8">
+                                <h2 className="mb-2 text-3xl font-bold text-white">System Analytics</h2>
+                                <p className="text-slate-300">Overview of system-wide fairness metrics and selection patterns.</p>
+                            </div>
+                            <Dashboard refreshToken={refreshToken} />
                         </div>
-                        <Dashboard refreshToken={refreshToken} />
-                    </div>
+                    </Suspense>
                 ) : null}
 
-                {activeTab === 'upload' ? <CSVUpload onUploadComplete={handleUploadComplete} /> : null}
+                {activeTab === 'upload' ? (
+                    <Suspense fallback={<div className="text-white text-center py-8">Loading...</div>}>
+                        <CSVUpload onUploadComplete={handleUploadComplete} />
+                    </Suspense>
+                ) : null}
 
-                {activeTab === 'admin' ? <AdminPanel refreshToken={refreshToken} /> : null}
+                {activeTab === 'admin' ? (
+                    <Suspense fallback={<div className="text-white text-center py-8">Loading...</div>}>
+                        <AdminPanel refreshToken={refreshToken} />
+                    </Suspense>
+                ) : null}
             </main>
 
             <footer className="mt-20 border-t border-white/10 py-8 text-center text-sm text-slate-400">
