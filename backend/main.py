@@ -3,6 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from routes import predict
 from services.bias import get_bias_metrics, load_dataset
 from services.firebase_utils import get_predictions
+import os
 
 app = FastAPI(title="FairCheck AI API")
 
@@ -44,6 +45,9 @@ async def get_stats():
         ],
     }
 
+
+
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)
