@@ -1,8 +1,8 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from backend.routes import predict
-from backend.services.bias import get_bias_metrics, load_dataset
-from backend.services.firebase_utils import get_predictions
+from routes import predict
+from services.bias import get_bias_metrics, load_dataset
+from services.firebase_utils import get_predictions
 
 app = FastAPI(title="FairCheck AI API")
 

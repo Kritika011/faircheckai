@@ -5,11 +5,11 @@ import pandas as pd
 from fastapi import APIRouter, File, HTTPException, UploadFile
 from pydantic import BaseModel
 
-from backend.model_loader import load_model
-from backend.services.ai_service import get_ai_suggestions
-from backend.services.bias import get_bias_metrics, load_dataset, save_dataset
-from backend.services.explain import explain_decision
-from backend.services.firebase_utils import get_predictions, save_prediction
+from model_loader import load_model
+from services.ai_service import get_ai_suggestions
+from services.bias import get_bias_metrics, load_dataset, save_dataset
+from services.explain import explain_decision
+from services.firebase_utils import get_predictions, save_prediction
 from model.train_model import train_model
 
 router = APIRouter()
