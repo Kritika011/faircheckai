@@ -1,0 +1,139 @@
+# 🚀 FairCheck AI
+
+An AI-powered web application to detect bias in automated decision-making systems (like hiring or loan approval).
+
+## 🧠 Features
+
+- 📊 Predict candidate selection using ML model
+- ⚖️ Detect bias (e.g., gender-based unfairness)
+- 📈 Dashboard with selection statistics
+- 🤖 AI suggestions to reduce bias (Gemini API)
+- 🔥 Full-stack app (React + FastAPI)
+
+---
+
+## 🛠️ Tech Stack
+
+### Frontend
+
+- React (Vite)
+- Axios
+- Tailwind CSS
+
+### Backend
+
+- FastAPI
+- Python
+
+### Machine Learning
+
+- scikit-learn
+- pandas
+- numpy
+
+### Optional
+
+- Firebase (for database)
+- Gemini API (AI suggestions)
+
+---
+
+## 📁 Project Structure
+
+```
+faircheckai/
+│
+├── backend/
+│   ├── main.py
+│   ├── routes/
+│   ├── services/
+│   ├── model_loader.py
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│
+├── dataset/
+│   └── data.csv
+│
+├── model/
+│   └── label_encoder.pkl
+```
+
+---
+
+## ⚙️ Setup Instructions
+
+### 🔹 1. Clone repo
+
+```
+git clone https://github.com/your-username/faircheck-ai.git
+cd faircheck-ai
+```
+
+---
+
+### 🔹 2. Backend Setup
+
+```
+cd backend
+python -m venv .venv
+.venv\Scripts\activate
+pip install -r requirements.txt
+```
+
+Run server:
+
+```
+python -m uvicorn backend.main:app --reload
+```
+
+---
+
+### 🔹 3. Frontend Setup
+
+```
+cd frontend
+npm install
+npm run dev
+```
+
+---
+
+## 🌐 API Endpoint
+
+POST `/predict`
+
+Example:
+
+```
+{
+  "gender": "F",
+  "experience": 3,
+  "score": 75
+}
+```
+
+---
+
+## 🎯 Goal
+
+To build a fair and transparent AI system that:
+
+- Detects bias
+- Explains decisions
+- Suggests improvements
+
+---
+
+## ⚠️ Notes
+
+- Firebase is optional for prototype
+- Gemini API requires API key
+- Designed for hackathon prototype (not production)
+
+---
+
+## 👩‍💻 Author
+
+- Kritika Pramanik

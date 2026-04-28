@@ -1,0 +1,51 @@
+# 🔒 Python
+
+**pycache**/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# 🔒 Virtual Environment
+
+.venv/
+venv/
+env/
+
+# 🔒 Environment variables
+
+.env
+
+# 🔒 Node / React
+
+node_modules/
+dist/
+build/
+
+# Logs
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# 🔒 VS Code
+
+.vscode/
+
+# 🔒 OS files
+
+.DS_Store
+Thumbs.db
+
+# 🔒 Jupyter
+
+.ipynb_checkpoints/
+
+# 🔒 Firebase / Secrets (IMPORTANT)
+
+firebase_key.json
+*.json
+
+# 🔒 Cache
+
+.cache/
